@@ -1,7 +1,7 @@
 // We use this code, known as Objects, to control toggling like / unlike status
 
 
-
+//Create variables for the colors and glyphs
 let glyphStates = {
   "♡": "♥",
   "♥": "♡"
@@ -16,9 +16,19 @@ let colorStates = {
 // Without JavaScript, clicking on these heart shapes does nothing. Uncomment
 // this code and refresh the demo page.
 
-// let articleHearts = document.querySelectorAll(".like-glyph");
+//find the like-glyph heart shape
+//https://careerkarma.com/blog/javascript-queryselector-vs-getelementbyid/  -> describes the difference between query selector and get element by id
+//use query selector to grab a class name or multiple things, get element by id only grabs one thing
+//always ensure you have a .class before the class name 
+//use let to create the variable
+//1. GRAB the variable
+let articleHearts = document.querySelectorAll(".like-glyph");
 
+//2. Create a function for the callback
+//https://developer.mozilla.org/en-US/docs/Glossary/Callback_function 
+//Callback functions are other functions passed in as an argument 
 function likeCallback(e) {
+  debugger;
   let heart = e.target;
   mimicServerCall()
     .then(function(serverMessage){
@@ -41,9 +51,9 @@ function likeCallback(e) {
 // code when an "event" is fired. That's Pillar 2, event handling. Uncomment
 // this code.
 
-//for (let glyph of articleHearts) {
-  //glyph.addEventListener("click", likeCallback);
-//}
+for (let glyph of articleHearts) {
+  glyph.addEventListener("click", likeCallback);
+}
 
 // STEP 4: 
 
